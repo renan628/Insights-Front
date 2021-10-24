@@ -38,4 +38,7 @@ export const Text = styled.div`
 export const Flex = styled.div<FlexProps>`
   display: flex;
   justify-content: ${(props) => props.justify || ''};
+  align-items: ${(props) => props.align || ''};
+  flex-direction: ${(props) => props.direction || 'row'};
+  width: 100%;
 `;

@@ -6,9 +6,11 @@ export const defaultTheme: themeType = {
   name: 'teste-front',
   colors: {
     primary: {
-      light: '#61C3FF',
-      main: '#0193DD',
+      backgroundHeader: '#B757C2',
+      background: '#F4F4F4',
+      main: '#ED4D77',
       contrast: '#FFFFFF',
+      light: '#4A48B0',
       dark: '#0066AB',
       contained: {
         hover_background: '#01679B',
@@ -60,7 +62,7 @@ export const defaultTheme: themeType = {
     },
   },
   fontFamily: {
-    primary: 'Montserrat',
+    primary: 'Exo, sans-serif',
     secondary: 'Roboto',
     components: 'Poppins',
   },
