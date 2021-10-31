@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import Icon from '@mui/material/Icon';
 import {
   Background,
@@ -21,15 +22,24 @@ const logo = require('../../assets/images/brand-insights@3x.svg');
 const avatar = require('../../assets/images/avatar.png');
 
 const System = ({ component }: PageParams) => {
+  const history = useHistory();
+  const redirectToAdd = () => {
+    history.push('/new');
+  };
+
   return (
     <Background>
       <Top>
         <TopLogo>
-          <Flex justify="space-between" align="center">
+          <Flex
+            justify="space-between"
+            align="center"
+            style={{ width: '100%' }}
+          >
             <img src={logo.default} style={{ width: 50 }} alt="logo" />
             <Avatar avatar={avatar.default} />
-            <div style={{ width: 50, textAlign: 'right' }}>
-              <Icon>add</Icon>
+            <div style={{ width: 50, textAlign: 'right', cursor: 'pointer' }}>
+              <Icon onClick={() => redirectToAdd()}>add</Icon>
             </div>
           </Flex>
         </TopLogo>

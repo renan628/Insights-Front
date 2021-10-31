@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Feed from './feed';
+import Create from './create';
 
 function LoginRoute() {
   return (
     <Switch>
-      <Route exact path="/" render={() => <Feed />} />
+      <Route exact path="/new" render={() => <Create />} />
     </Switch>
   );
 }

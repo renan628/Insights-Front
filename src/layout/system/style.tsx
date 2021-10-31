@@ -22,7 +22,6 @@ export const Background = styled.div`
 export const Top = styled.div`
   // height: 254px;
   padding: 30px 16px 0 16px;
-  //position: relative;
 `;
 
 export const Avatar = styled.div<AvatarProps>`

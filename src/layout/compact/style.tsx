@@ -20,7 +20,7 @@ export const Background = styled.div`
 
 export const Top = styled.div`
   // height: 254px;
-  padding: 30px 16px 0 16px;
+  padding: 26px 16px 0 16px;
   //position: relative;
   color: ${defaultTheme.colors.primary.main};
 `;
@@ -52,7 +52,7 @@ export const Title = styled.div`
   font-size: 20px;
   color: ${defaultTheme.colors.primary.main};
   font-family: ${defaultTheme.fontFamily.primary};
-  font-weight: 400;
+  font-weight: 600;
   font-style: italic;
 `;
 
@@ -84,6 +84,6 @@ export const Content = styled.div`
   font-family: ${defaultTheme.fontFamily.primary};
   font-weight: 500;
   font-size: 14px;
-  padding: 16px 16px;
+  padding: 30px 16px 16px 16px;
   // position: absolute;
 `;

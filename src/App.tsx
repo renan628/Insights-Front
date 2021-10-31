@@ -1,23 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import System from './layout/system';
 import Compact from './layout/compact';
+import Create from './views/insert';
 import Feed from './views/feed';
-import Create from './views/create';
 
 function App() {
   return (
     <BrowserRouter basename="">
       <Switch>
         <Route
-          exact
-          path="/"
-          render={(props) => <System component={<Feed />} />}
-        />
-        <Route
           path="/new"
           render={(props) => <Compact component={<Create />} />}
         />
+        <Route path="/" render={(props) => <System component={<Feed />} />} />
+        <Redirect from="/" to="/" />
       </Switch>
     </BrowserRouter>
   );

@@ -14,12 +14,12 @@ const System = ({ component }: PageParams) => {
     <Background>
       <Top>
         <Flex justify="space-between">
-          <Flex align="center">
+          <Flex align="center" style={{ cursor: 'pointer' }}>
             <ArrowBack onClick={() => history.goBack()} />
           </Flex>
           <div style={{ textAlign: 'center' }}>
-            <Title>Criar</Title>
-            <Title>Insight</Title>
+            <Title style={{ fontWeight: 200 }}>CRIAR</Title>
+            <Title style={{ marginTop: -6 }}>INSIGHT</Title>
           </div>
           <div style={{ width: 20 }} />
         </Flex>
