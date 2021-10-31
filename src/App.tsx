@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import System from './layout/system';
-import Login from './views/login';
-import Register from './views/register';
+import Compact from './layout/compact';
+import Feed from './views/feed';
+import Create from './views/create';
 
 function App() {
   return (
@@ -10,13 +11,12 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/login"
-          render={(props) => <System component={<Login />} />}
+          path="/"
+          render={(props) => <System component={<Feed />} />}
         />
         <Route
-          exact
-          path="/register"
-          render={(props) => <System component={<Register />} />}
+          path="/new"
+          render={(props) => <Compact component={<Create />} />}
         />
       </Switch>
     </BrowserRouter>

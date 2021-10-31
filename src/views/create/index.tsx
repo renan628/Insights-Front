@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Login from './login';
+import Feed from './feed';
 
 function LoginRoute() {
   return (
     <Switch>
-      <Route exact path="/login" render={() => <Login />} />
+      <Route exact path="/" render={() => <Feed />} />
     </Switch>
   );
 }

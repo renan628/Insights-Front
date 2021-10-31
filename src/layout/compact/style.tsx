@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { defaultTheme } from '../../theme';
 
-const background = require('../../assets/images/background.svg');
+const background = require('../../assets/images/background-compact.svg');
 
 export interface AvatarProps {
   avatar?: any;
@@ -13,7 +13,6 @@ export const Background = styled.div`
   background-color: ${defaultTheme.colors.primary.background};
   background-position: top -50%;
   background-repeat: no-repeat;
-  //background-color: ${defaultTheme.colors.primary.backgroundHeader};
   background-image: url(${background.default});
   background-size: 100%;
   width: 414px;
@@ -23,6 +22,7 @@ export const Top = styled.div`
   // height: 254px;
   padding: 30px 16px 0 16px;
   //position: relative;
+  color: ${defaultTheme.colors.primary.main};
 `;
 
 export const Avatar = styled.div<AvatarProps>`

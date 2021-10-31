@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Register from './register';
+import Create from './create';
 
 function LoginRoute() {
   return (
     <Switch>
-      <Route exact path="/register" render={() => <Register />} />
+      <Route exact path="/new" render={() => <Create />} />
     </Switch>
   );
 }

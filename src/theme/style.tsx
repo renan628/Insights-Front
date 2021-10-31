@@ -40,5 +40,5 @@ export const Flex = styled.div<FlexProps>`
   justify-content: ${(props) => props.justify || ''};
   align-items: ${(props) => props.align || ''};
   flex-direction: ${(props) => props.direction || 'row'};
-  width: 100%;
+  // width: 100%;
 `;
