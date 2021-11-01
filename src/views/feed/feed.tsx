@@ -1,25 +1,27 @@
 import React from 'react';
 import Input from '../../components/input';
-import { Card, FooterContent, ViewMore } from './style';
+import { Card, FooterContent, ViewMore, Tag } from './style';
+import { Flex } from '../../theme/style';
+import { useInsightContext } from '../../api/contexts/insights';
+import { Insigths } from '../../api/contexts/types';
 
 function Feed() {
+  const { insights, getInsights } = useInsightContext();
+  // {insights &&
+  // insights.map((insight: Insigths) => <Card>{insight.texto}</Card>)}
   return (
     <>
-      <Card>
-        Flamengo consegue boa vitória fora de casa na estréia da Copa
-        Libertadores 2021
-      </Card>
-      <Card>
-        Primeira partida de um grupo difícil exigiu que o time carioca virasse o
-        placar em dois momentos do jogo
-      </Card>
-      <Card>
-        O Flamengo não conseguia vencer um time na Argentina há mais de 40 anos
-      </Card>
-      <Card>
-        Arrascaeta fez a diferença e garantiu a vitória para o time rubro-negro
-      </Card>
-      <ViewMore>...</ViewMore>
+      {insights &&
+        insights.map((insight: Insigths) => (
+          <Card>
+            {insight.texto}
+            <Flex align="center" justify="center">
+              {insight.tags &&
+                insight.tags.map((tags) => <Tag>{tags.nome}</Tag>)}
+            </Flex>
+          </Card>
+        ))}
+      <ViewMore onClick={getInsights}>...</ViewMore>
       <FooterContent>Toque para exibir mais insights</FooterContent>
       <Input placeholder="Pesquise por termos ou categorias..." type="search" />
     </>

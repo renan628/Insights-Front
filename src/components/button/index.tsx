@@ -30,7 +30,6 @@ const CustomizedButtons: FC<buttonParams> = ({
     fontSize: 16,
     fontWeight: 600,
     fontStyle: 'italic',
-    lineHeight: 18,
     letterSpacing: 3,
     width: width || '100%',
     fontFamily: defaultTheme.fontFamily.primary,
@@ -50,7 +49,7 @@ const CustomizedButtons: FC<buttonParams> = ({
         onClick={() => {
           if (typeof onClick === 'function') onClick();
         }}
-        disabled
+        disabled={disabled}
         variant={variant}
       >
         {label}

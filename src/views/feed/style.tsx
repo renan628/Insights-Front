@@ -29,3 +29,15 @@ export const FooterContent = styled.div`
   color: ${defaultTheme.colors.primary.light};
   margin-bottom: 58px;
 `;
+
+export const Tag = styled.div`
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: ${defaultTheme.colors.primary.main};
+  border: 2px solid rgba(${defaultTheme.rgba.main}, 0.24);
+  border-radius: 4px;
+  margin-top: 15px;
+  width: min-content;
+  padding: 8px;
+`;

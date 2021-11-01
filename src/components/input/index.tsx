@@ -8,11 +8,14 @@ import TextField, { TextFieldProps } from '@mui/material/TextField';
 import defaultTheme from '../../theme';
 
 interface inputParams {
+  onChange?: (arg1: string) => void;
   defaultValue?: string;
   placeholder?: string;
   type?: 'search' | string;
   rows?: number;
   label?: string;
+  onKeyPress?: (arg1: React.KeyboardEvent<HTMLDialogElement>) => void;
+  onEnterPress?: () => void;
 }
 
 const StyledTextField = styled(TextField)<TextFieldProps>(() => ({
@@ -58,7 +61,22 @@ const Input: React.FC<inputParams> = ({
   type,
   rows,
   label,
+  onChange,
+  onKeyPress,
+  onEnterPress,
 }) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (e.key === 'Enter') {
+      if (typeof onEnterPress === 'function') {
+        onEnterPress();
+      }
+    }
+
+    if (typeof onKeyPress === 'function') {
+      onKeyPress(e);
+    }
+  };
+
   if (type === 'search') {
     return (
       <Paper
@@ -77,6 +95,12 @@ const Input: React.FC<inputParams> = ({
           placeholder={placeholder || ''}
           inputProps={{ 'aria-label': 'search google maps' }}
           defaultValue={defaultValue || ''}
+          onChange={(e) =>
+            typeof onChange === 'function' && onChange(e.target.value)
+          }
+          onKeyPress={(e) => {
+            if (typeof onKeyPress === 'function') onKeyPress(e);
+          }}
         />
         <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
           <SearchIcon style={{ color: 'rgba(102, 102, 102, 0.4' }} />
@@ -91,6 +115,12 @@ const Input: React.FC<inputParams> = ({
       id="filled-multiline-static"
       label={label || ''}
       multiline
+      onChange={(e) =>
+        typeof onChange === 'function' && onChange(e.target.value)
+      }
+      onKeyPress={(e) => {
+        if (typeof onKeyPress === 'function') onKeyPress(e);
+      }}
       rows={rows || 1}
       variant="filled"
       fullWidth

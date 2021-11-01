@@ -9,10 +9,9 @@ const api = axios.create({
 
 api.interceptors.request.use(async (config: AxiosRequestConfig) => {
   const returnConfig = config;
-  if (userData?.accessToken && returnConfig.headers) {
-    returnConfig.headers.Authorization = `Bearer ${userData?.accessToken}`;
-  }
   return returnConfig;
 });
+
+api.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 export default api;
