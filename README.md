@@ -1,4 +1,6 @@
-## Frontend
+Essa é aplicação react que implementa o frontend do insights. Ela responsável por interagir com a API no backend, para que o usuário final consiga visualizar manipular cards e tags para em mãos seus insights
+
+## Rodando Frontend
 
 Primeiramente é necessário ter o [Node e NMP](https://nodejs.org/en/download/)
 
@@ -36,4 +38,4 @@ E por fim, servir a aplicação, que deve iniciar na porta 5000
 serve -s build
 ```
 
-Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web conhecido, como por exemplo o [NGINX](https://www.nginx.com/)
+Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web mais conhecido (e robusto), como por exemplo o [NGINX](https://www.nginx.com/)
