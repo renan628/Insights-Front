@@ -2,10 +2,9 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { purple } from '@mui/material/colors';
 import { FC } from 'react';
+import { CircularProgress } from '@mui/material';
 import { defaultTheme } from '../../theme';
-import { hexToRGB } from '../../utils/color';
 
 interface buttonParams {
   label: string;
@@ -13,6 +12,8 @@ interface buttonParams {
   width?: number;
   variant?: 'contained' | 'outlined' | undefined;
   disabled?: boolean;
+  loading?: boolean;
+  dataTestid?: string;
 }
 
 const CustomizedButtons: FC<buttonParams> = ({
@@ -21,6 +22,8 @@ const CustomizedButtons: FC<buttonParams> = ({
   label,
   onClick,
   disabled,
+  loading,
+  dataTestid,
 }) => {
   const ColorButton = styled(Button)<ButtonProps>(() => ({
     color: defaultTheme.colors.primary.contrast,
@@ -51,8 +54,18 @@ const CustomizedButtons: FC<buttonParams> = ({
         }}
         disabled={disabled}
         variant={variant}
+        data-testid={dataTestid || ''}
       >
-        {label}
+        {loading ? (
+          <>
+            <CircularProgress
+              size={30}
+              style={{ color: '#fff', marginRight: 15 }}
+            />{' '}
+          </>
+        ) : (
+          label
+        )}
       </ColorButton>
     </Stack>
   );

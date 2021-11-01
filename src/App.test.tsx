@@ -2,8 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Verificando Layout', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const nameElement = screen.getByText(/Olá, Antonio/i);
+  expect(nameElement).toBeInTheDocument();
+  const EMailElement = screen.getByText(/antonio.pina@g.globo/i);
+  expect(EMailElement).toBeInTheDocument();
 });

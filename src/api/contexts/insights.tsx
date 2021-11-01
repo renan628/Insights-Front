@@ -3,7 +3,7 @@ import { useMutation, useQuery } from 'react-query';
 import { createContainer, useContainer } from 'unstated-next';
 import { useHistory } from 'react-router-dom';
 import api from '../service/api';
-import { GetInsightsType, Insigths } from './types';
+import { GetInsightsType, Insigths, PostInsightsSendType } from './types';
 
 function useInsightContainer(): any {
   const [token, setToken] = useState<string>('');
@@ -38,13 +38,40 @@ function useInsightContainer(): any {
     }
   );
 
+  const postInsightsMutantion = useMutation(
+    ['getInsights'],
+    (props: PostInsightsSendType) =>
+      api.post<GetInsightsType>('/api/v1/cards/', props),
+    {
+      onSuccess: (date, props) => {
+        const latestInsigths = insights || [];
+        let newInsights = [props];
+        newInsights = newInsights.concat(latestInsigths);
+        setInsights(newInsights);
+      },
+    }
+  );
+
   const getInsights = async () => {
     return getInsightsMutantion.mutateAsync();
+  };
+
+  const postInsights = async (insigth: string, tag: string) => {
+    return postInsightsMutantion.mutateAsync({
+      texto: insigth,
+      tags: [
+        {
+          nome: tag,
+        },
+      ],
+    });
   };
 
   return {
     insights,
     getInsights,
+    postInsights,
+    setInsights,
   };
 }
 

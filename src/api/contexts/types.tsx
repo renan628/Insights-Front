@@ -6,12 +6,17 @@ export interface GetInsightsType {
 }
 
 export interface Insigths {
-  id: number;
+  id?: number;
   texto: string;
   tags: Tags[];
 }
 
 export interface Tags {
-  id: number;
+  id?: number;
   nome: string;
+}
+
+export interface PostInsightsSendType {
+  texto: string;
+  tags: Tags[];
 }

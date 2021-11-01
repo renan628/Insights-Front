@@ -18,7 +18,7 @@ interface PageParams {
   component: React.ReactElement;
 }
 
-const logo = require('../../assets/images/brand-insights@3x.svg');
+const logo = require('../../assets/images/brand-insights.svg');
 const avatar = require('../../assets/images/avatar.png');
 
 const System = ({ component }: PageParams) => {
@@ -39,7 +39,9 @@ const System = ({ component }: PageParams) => {
             <img src={logo.default} style={{ width: 50 }} alt="logo" />
             <Avatar avatar={avatar.default} />
             <div style={{ width: 50, textAlign: 'right', cursor: 'pointer' }}>
-              <Icon onClick={() => redirectToAdd()}>add</Icon>
+              <Icon data-testid="insertButton" onClick={() => redirectToAdd()}>
+                add
+              </Icon>
             </div>
           </Flex>
         </TopLogo>

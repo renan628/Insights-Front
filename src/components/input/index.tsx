@@ -16,6 +16,7 @@ interface inputParams {
   label?: string;
   onKeyPress?: (arg1: React.KeyboardEvent<HTMLDialogElement>) => void;
   onEnterPress?: () => void;
+  dataTestid?: string;
 }
 
 const StyledTextField = styled(TextField)<TextFieldProps>(() => ({
@@ -64,6 +65,7 @@ const Input: React.FC<inputParams> = ({
   onChange,
   onKeyPress,
   onEnterPress,
+  dataTestid,
 }) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDialogElement>) => {
     if (e.key === 'Enter') {
@@ -93,13 +95,15 @@ const Input: React.FC<inputParams> = ({
         <InputBase
           sx={{ ml: 1, flex: 1 }}
           placeholder={placeholder || ''}
-          inputProps={{ 'aria-label': 'search google maps' }}
           defaultValue={defaultValue || ''}
           onChange={(e) =>
             typeof onChange === 'function' && onChange(e.target.value)
           }
           onKeyPress={(e) => {
             if (typeof onKeyPress === 'function') onKeyPress(e);
+          }}
+          inputProps={{
+            'data-testid': dataTestid || '',
           }}
         />
         <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
@@ -111,6 +115,9 @@ const Input: React.FC<inputParams> = ({
 
   return (
     <StyledTextField
+      inputProps={{
+        'data-testid': dataTestid || '',
+      }}
       placeholder={placeholder || ''}
       id="filled-multiline-static"
       label={label || ''}

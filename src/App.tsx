@@ -19,10 +19,11 @@ function App() {
               render={(props) => <Compact component={<Create />} />}
             />
             <Route
+              exact
               path="/"
               render={(props) => <System component={<Feed />} />}
             />
-            <Redirect from="/" to="/" />
+            <Redirect from="" to="/" />
           </Switch>
         </BrowserRouter>
       </InsightContainer.Provider>
