@@ -7,41 +7,40 @@ import { FC } from 'react';
 import { defaultTheme } from '../../theme';
 import { hexToRGB } from '../../utils/color';
 
-interface inputParams {
+interface buttonParams {
   label: string;
   onClick?: () => void | any;
   width?: number;
   variant?: 'contained' | 'outlined' | undefined;
+  disabled?: boolean;
 }
 
-const CustomizedButtons: FC<inputParams> = ({
+const CustomizedButtons: FC<buttonParams> = ({
   width,
   variant,
   label,
   onClick,
+  disabled,
 }) => {
   const ColorButton = styled(Button)<ButtonProps>(() => ({
     color: defaultTheme.colors.primary.contrast,
-    backgroundColor: hexToRGB(
-      defaultTheme.colors.primary.light,
-      variant === 'outlined' ? '0.0' : '1'
-    ),
-    borderRadius: 64,
+    backgroundColor: defaultTheme.colors.primary.main,
+    borderRadius: 8,
     padding: '6px 15px',
-    fontSize: 15,
+    fontSize: 16,
+    fontWeight: 600,
+    fontStyle: 'italic',
+    lineHeight: 18,
+    letterSpacing: 3,
     width: width || '100%',
-    fontFamily: defaultTheme.fontFamily.components,
-    '@media screen and (max-width: 640px)': {
-      height: 44,
-    },
-    '@media screen and (min-width: 640px)': {
-      height: 64,
+    fontFamily: defaultTheme.fontFamily.primary,
+    height: 56,
+    '&.Mui-disabled	': {
+      color: '#fff',
+      backgroundColor: `rgba(${defaultTheme.rgba.main}, 0.4)`,
     },
     '&:hover': {
-      backgroundColor: hexToRGB(
-        defaultTheme.colors.primary.light,
-        variant === 'outlined' ? '0.0' : '0.95'
-      ),
+      backgroundColor: `rgba(${defaultTheme.rgba.main}, 0.8)`,
     },
   }));
 
@@ -51,6 +50,7 @@ const CustomizedButtons: FC<inputParams> = ({
         onClick={() => {
           if (typeof onClick === 'function') onClick();
         }}
+        disabled
         variant={variant}
       >
         {label}

@@ -21,7 +21,7 @@ function Feed() {
       </Card>
       <ViewMore>...</ViewMore>
       <FooterContent>Toque para exibir mais insights</FooterContent>
-      <Input placeholder="Pesquise por termos ou categorias..." />
+      <Input placeholder="Pesquise por termos ou categorias..." type="search" />
     </>
   );
 }

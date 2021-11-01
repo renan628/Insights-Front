@@ -11,21 +11,12 @@ export const Card = styled.div`
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
 `;
 
-export const Top = styled.div`
-  padding: 15px 10vw;
+export const LabelLimite = styled.div`
+  text-align: right;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.4);
 `;
 
-export const ViewMore = styled.div`
-  text-align: center;
-  font-size: 38px;
-  font-family: 'Roboto';
-  letter-spacing: -3px;
-  opacity: 0.16;
-`;
-
-export const FooterContent = styled.div`
-  text-align: center;
-  font-size: 14px;
-  color: ${defaultTheme.colors.primary.light};
-  margin-bottom: 58px;
+export const Content = styled.div`
+  height: calc(100vh - 180px);
 `;

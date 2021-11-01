@@ -13,6 +13,9 @@ export const defaultTheme: themeType = {
       light: '#666666',
     },
   },
+  rgba: {
+    main: '237,77,119',
+  },
   fontFamily: {
     primary: "'Exo 2'",
     secondary: 'Roboto',
