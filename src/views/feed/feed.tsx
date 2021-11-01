@@ -44,8 +44,8 @@ function Feed() {
         placeholder="Pesquise por termos ou categorias..."
         type="search"
         onChange={setsearch}
-        onEnterPress={onSearch}
-        onClick={onSearch}
+        onEnterPress={() => onSearch()}
+        onClick={() => onSearch()}
       />
     </>
   );

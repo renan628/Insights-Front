@@ -84,7 +84,6 @@ const Input: React.FC<inputParams> = ({
   if (type === 'search') {
     return (
       <Paper
-        component="form"
         sx={{
           p: '2px 4px',
           display: 'flex',
@@ -102,7 +101,7 @@ const Input: React.FC<inputParams> = ({
             typeof onChange === 'function' && onChange(e.target.value)
           }
           onKeyPress={(e) => {
-            if (typeof onKeyPress === 'function') onKeyPress(e);
+            if (typeof onEnterPress === 'function') handleKeyPress(e);
           }}
           inputProps={{
             'data-testid': dataTestid || '',

@@ -87,7 +87,7 @@ function useInsightContainer(): any {
     return searchInsightsMutantion.mutateAsync({
       limit: 20,
       skip: 0,
-      tags: [search],
+      tags: search,
     });
   };
 

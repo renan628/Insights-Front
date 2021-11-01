@@ -24,5 +24,5 @@ export interface PostInsightsSendType {
 export interface GetInsightsSendType {
   limit: number;
   skip: number;
-  tags?: string[];
+  tags?: string;
 }
