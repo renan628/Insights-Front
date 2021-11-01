@@ -3,7 +3,12 @@ import { useMutation, useQuery } from 'react-query';
 import { createContainer, useContainer } from 'unstated-next';
 import { useHistory } from 'react-router-dom';
 import api from '../service/api';
-import { GetInsightsType, Insigths, PostInsightsSendType } from './types';
+import {
+  GetInsightsSendType,
+  GetInsightsType,
+  Insigths,
+  PostInsightsSendType,
+} from './types';
 
 function useInsightContainer(): any {
   const [token, setToken] = useState<string>('');
@@ -38,6 +43,17 @@ function useInsightContainer(): any {
     }
   );
 
+  const searchInsightsMutantion = useMutation(
+    ['getInsights'],
+    (props: GetInsightsSendType) =>
+      api.get<GetInsightsType>('/api/v1/cards/', { params: props }),
+    {
+      onSuccess: (date) => {
+        setInsights(date.data.results);
+      },
+    }
+  );
+
   const postInsightsMutantion = useMutation(
     ['getInsights'],
     (props: PostInsightsSendType) =>
@@ -67,11 +83,20 @@ function useInsightContainer(): any {
     });
   };
 
+  const searchInsights = async (search: string) => {
+    return searchInsightsMutantion.mutateAsync({
+      limit: 20,
+      skip: 0,
+      tags: [search],
+    });
+  };
+
   return {
     insights,
     getInsights,
     postInsights,
     setInsights,
+    searchInsights,
   };
 }
 

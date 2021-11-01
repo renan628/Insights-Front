@@ -20,3 +20,9 @@ export interface PostInsightsSendType {
   texto: string;
   tags: Tags[];
 }
+
+export interface GetInsightsSendType {
+  limit: number;
+  skip: number;
+  tags?: string[];
+}

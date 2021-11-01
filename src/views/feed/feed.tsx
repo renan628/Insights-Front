@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Input from '../../components/input';
 import { Card, FooterContent, ViewMore, Tag } from './style';
@@ -6,32 +6,14 @@ import { Flex } from '../../theme/style';
 import { useInsightContext } from '../../api/contexts/insights';
 import { Insigths } from '../../api/contexts/types';
 
-interface params {
-  test?: boolean;
-}
+function Feed() {
+  const [search, setsearch] = useState<string>();
+  const { insights, getInsights, setInsights, searchInsights } =
+    useInsightContext();
 
-function Feed(props: params) {
-  const { insights, getInsights, setInsights } = useInsightContext();
-
-  // eslint-disable-next-line react/destructuring-assignment
-  if (props.test) {
-    let mockValues: Insigths[] = [];
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 5; i++) {
-      mockValues = mockValues.concat({
-        id: i,
-        texto: `teste${i}`,
-        tags: [
-          {
-            id: i,
-            nome: 'tag teste',
-          },
-        ],
-      });
-    }
-
-    setInsights(mockValues);
-  }
+  const onSearch = async () => {
+    await searchInsights(search);
+  };
 
   return (
     <>
@@ -58,7 +40,13 @@ function Feed(props: params) {
       <FooterContent onClick={getInsights} style={{ cursor: 'pointer' }}>
         Toque para exibir mais insights
       </FooterContent>
-      <Input placeholder="Pesquise por termos ou categorias..." type="search" />
+      <Input
+        placeholder="Pesquise por termos ou categorias..."
+        type="search"
+        onChange={setsearch}
+        onEnterPress={onSearch}
+        onClick={onSearch}
+      />
     </>
   );
 }

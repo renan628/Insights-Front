@@ -16,6 +16,7 @@ interface inputParams {
   label?: string;
   onKeyPress?: (arg1: React.KeyboardEvent<HTMLDialogElement>) => void;
   onEnterPress?: () => void;
+  onClick?: () => void;
   dataTestid?: string;
 }
 
@@ -66,6 +67,7 @@ const Input: React.FC<inputParams> = ({
   onKeyPress,
   onEnterPress,
   dataTestid,
+  onClick,
 }) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDialogElement>) => {
     if (e.key === 'Enter') {
@@ -107,7 +109,12 @@ const Input: React.FC<inputParams> = ({
           }}
         />
         <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-          <SearchIcon style={{ color: 'rgba(102, 102, 102, 0.4' }} />
+          <SearchIcon
+            onClick={() => {
+              if (typeof onClick === 'function') onClick();
+            }}
+            style={{ color: 'rgba(102, 102, 102, 0.4' }}
+          />
         </IconButton>
       </Paper>
     );
