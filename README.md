@@ -38,4 +38,4 @@ E por fim, servir a aplicação, que deve iniciar na porta 5000
 serve -s build
 ```
 
-Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web conhecido, como por exemplo o [NGINX](https://www.nginx.com/)
+Essa é claro, uma solução simples. É possível servir a aplicação em algum servidor web mais conhecido (e robusto), como por exemplo o [NGINX](https://www.nginx.com/)
