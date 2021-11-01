@@ -1,4 +1,6 @@
-## Frontend
+Essa é aplicação react que implementa o frontend do insights. Ela responsável por interagir com a API no backend, para que o usuário final consiga visualizar manipular cards e tags para em mãos seus insights
+
+## Rodando Frontend
 
 Primeiramente é necessário ter o [Node e NMP](https://nodejs.org/en/download/)
 
